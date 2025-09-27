@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Coinera - Admin Panel</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Admin Panel</h1>
+    <div id="adminLogin">
+      <input id="adminUser" type="text" placeholder="Admin Username" />
+      <input id="adminPass" type="password" placeholder="Admin Password" />
+      <button onclick="adminLogin()">Login</button>
+    </div>
+
+    <div id="adminDashboard" style="display:none;">
+      <h2>Welcome, Admin</h2>
+      <button onclick="showSection('deposits')">Pending Deposits</button>
+      <button onclick="showSection('withdraws')">Pending Withdraws</button>
+      <button onclick="showSection('plans')">User Plans</button>
+      <button onclick="showSection('referrals')">Referrals</button>
+
+      <div id="deposits" style="display:none;">
+        <h3>Pending Deposits</h3>
+        <ul id="depositList"></ul>
+      </div>
+
+      <div id="withdraws" style="display:none;">
+        <h3>Pending Withdraws</h3>
+        <ul id="withdrawList"></ul>
+      </div>
+
+      <div id="plans" style="display:none;">
+        <h3>User Plans</h3>
+        <ul id="planList"></ul>
+      </div>
+
+      <div id="referrals" style="display:none;">
+        <h3>Referral Records</h3>
+        <ul id="refList"></ul>
+      </div>
+    </div>
+  </div>
+
+  <script src="admin.js"></script>
+</body>
+</html>
