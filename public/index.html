@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="ur">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Coinera - User</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Coinera App (User Panel)</h1>
+
+    <div id="auth">
+      <input id="username" placeholder="Username likho" />
+      <input id="password" placeholder="Password likho" type="password" />
+      <input id="ref" placeholder="Referral Code (agar hai)" />
+      <button id="signupBtn">Signup</button>
+      <button id="loginBtn">Login</button>
+    </div>
+
+    <div id="panel" style="display:none;">
+      <h2>Khush aamdeed, <span id="usern"></span></h2>
+      <p>Balance: <b id="balance">0</b></p>
+      <p>Mined Coins: <b id="mined">0</b></p>
+
+      <div>
+        <button id="startMine">Free Mining Start</button>
+      </div>
+
+      <hr />
+
+      <h3>Deposit (Manual)</h3>
+      <p>Deposit karne ke liye niche diye gaye tareeqay se payment bhejein, phir <b>Request Deposit</b> bhej dein. Admin jab confirm karega to balance add ho jayega.</p>
+
+      <p><b>Easypaisa Number:</b> +92 348 427 0615 (Naeem Shahzad)</p>
+      <p><b>USD TRC20 Wallet (USDT-TRC20):</b> TNQugeq5LAX4KWpT4QLLQFoVyBp5KGKTSV</p>
+
+      <div>
+        <input id="depAmt" placeholder="Amount (e.g. 10)" />
+        <select id="depMethod">
+          <option value="easypaisa">Easypaisa</option>
+          <option value="trc20">TRC20 (USDT)</option>
+        </select>
+        <input id="depDetails" placeholder="Transaction ID / Notes (jo bhi bheja ho)" />
+        <button id="requestDepositBtn">Request Deposit</button>
+      </div>
+
+      <hr />
+
+      <h3>Buy Plan</h3>
+      <select id="plans"></select>
+      <button id="buyPlanBtn">Buy Plan</button>
+
+      <hr />
+
+      <h3>Withdraw (Manual)</h3>
+      <p>Withdraw request bhejne par admin panel me pending show hogi. Admin paisa confirm karke approve karega.</p>
+      <input id="withAmt" placeholder="Amount to withdraw" />
+      <select id="withMethod">
+        <option value="easypaisa">Easypaisa</option>
+        <option value="trc20">TRC20</option>
+      </select>
+      <input id="withDetails" placeholder="Receiver number / wallet (agar alag ho)" />
+      <button id="requestWithdrawBtn">Request Withdraw</button>
+
+      <p>Referral Code: <span id="myRef"></span></p>
+    </div>
+
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>
