@@ -1,3 +1,18 @@
+async function adminMine(){
+  const res = await fetch('/api/admin/mine',{method:'POST'});
+  const data = await res.json();
+  alert(`Admin mined: ${data.reward} coins`);
+}
+
+async function adminWithdraw(amount){
+  const res = await fetch('/api/withdraw',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({isAdmin:true, amount})
+  });
+  const data = await res.json();
+  alert(data.success ? 'Withdraw success' : 'Failed');
+}
 // Simple admin auth
 const ADMIN_USER = "admin";
 const ADMIN_PASS = "adminpass";
