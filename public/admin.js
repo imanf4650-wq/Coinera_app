@@ -1,3 +1,30 @@
+const API_BASE = '/api';
+const ADMIN_KEY = prompt("Enter admin password:");
+
+async function adminMine(username){
+  const res = await fetch(`${API_BASE}/adminMine.js`,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({username,adminKey:ADMIN_KEY})
+  });
+  return res.json();
+}
+
+// Example: Approve deposits/withdrawals
+async function approveDeposit(username){
+  alert(`Deposit approved for ${username}`);
+}
+
+async function approveWithdraw(username){
+  alert(`Withdraw approved for ${username}`);
+}
+
+// Bind UI buttons similar to user panel
+document.getElementById('adminMineBtn').onclick = async ()=>{
+  const username = document.getElementById('adminMineUser').value;
+  const r = await adminMine(username);
+  alert(r.message||r.error);
+}
 async function adminMine(){
   const res = await fetch('/api/admin/mine',{method:'POST'});
   const data = await res.json();
