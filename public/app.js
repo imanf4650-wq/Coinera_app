@@ -1,3 +1,77 @@
+const API_BASE = '/api';
+
+async function signup(username,password){
+  const res = await fetch(`${API_BASE}/signup.js`,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({username,password})
+  });
+  return res.json();
+}
+
+async function login(username,password){
+  const res = await fetch(`${API_BASE}/login.js`,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({username,password})
+  });
+  return res.json();
+}
+
+async function mine(username){
+  const res = await fetch(`${API_BASE}/mine.js`,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({username})
+  });
+  return res.json();
+}
+
+async function deposit(username,amount){
+  const res = await fetch(`${API_BASE}/deposit.js`,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({username,amount})
+  });
+  return res.json();
+}
+
+async function withdraw(username,amount){
+  const res = await fetch(`${API_BASE}/withdraw.js`,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({username,amount})
+  });
+  return res.json();
+}
+
+async function referral(referrer){
+  const res = await fetch(`${API_BASE}/referral.js`,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({referrer})
+  });
+  return res.json();
+}
+
+async function bonus(username){
+  const res = await fetch(`${API_BASE}/bonus.js`,{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body: JSON.stringify({username})
+  });
+  return res.json();
+}
+
+// Example: Update UI, handle button clicks, show alerts
+document.getElementById('signupBtn').onclick = async ()=>{
+  const username=document.getElementById('signupUser').value;
+  const password=document.getElementById('signupPass').value;
+  const r = await signup(username,password);
+  alert(r.message||r.error);
+}
+
+// Similar bindings for login, mine, deposit, withdraw, referral, bonus
 async function signup(){
   const username = document.getElementById('username').value;
   const password = document.getElementById('password').value;
